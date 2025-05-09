@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="aqua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Carnet de Voyage</title>
+    <link href="css/output.css" rel="stylesheet">
+    <!-- Lien vers le fichier CSS de Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- Lien vers le fichier JS de Leaflet -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Exercice 1: Calculatrice
+        function calculate(op) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+            if (isNaN(num1) || isNaN(num2)) {
+                result = 'Veuillez entrer des nombres valides';
+            } else {
+                switch (op) {
+                    case '+': result = num1 + num2; break;
+                    case '-': result = num1 - num2; break;
+                    case '*': result = num1 * num2; break;
+                }
+            }
+            document.getElementById('result').textContent = `Résultat: ${result}`;
+        }
+    </script>
+</head>
+<body class="bg-base-200 text-base-content">
+
+    <!-- Navigation -->
+    <nav class="navbar bg-primary shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-6 py-4">
+            <a class="text-xl font-bold">Carnet de Voyage</a>
+            <div class="flex space-x-4">
+                <a class="btn btn-outline btn-secondary" href="#about">À propos</a>
+                <a class="btn btn-outline btn-secondary" href="#skills">Expérience</a>
+                <a class="btn btn-outline btn-secondary" href="#projects">Destinations</a>
+                <a class="btn btn-outline btn-secondary" href="#calculator">Calculatrice</a>
+                <a class="btn btn-outline btn-secondary" href="#contact">Me contacter</a>
+                <button class="bg-red-500 text-white py-2 px-4 rounded-md" onclick="bruteForce()">Brute Force</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Présentation -->
+    <section id="about" class="py-16 text-center bg-base-100">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-4xl font-bold mb-4">Voyager, ma passion !</h2>
+            <p class="text-lg">
+                Raffolant de voyage depuis mon plus jeune âge, j'ai eu la chance 
+                                de parcourir le monde.
+            </p>
+        </div>
+    </section>
+
+    <!-- Expérience en voyage -->
+    <section id="skills" class="py-16 bg-base-200">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl font-bold text-center mb-6">Mon Expérience</h2>
+            <div class="space-y-8">
+                <div class="collapse collapse-arrow border border-gray-300 rounded-box bg-base-100 p-4 shadow-md">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium">Organisation de Voyages</div>
+                    <div class="collapse-content">
+                        <p class="text">
+                            Planification d'itinéraires, gestion de budget, recherche des meilleures destinations et bons plans.
+                        </p>
+                    </div>
+                </div>
+                <div class="collapse collapse-arrow border border-gray-300 rounded-box bg-base-100 p-4 shadow-md">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium">Photographie et Blog</div>
+                    <div class="collapse-content">
+                        <p class="text">
+                            Capturer des moments et des paysages uniques à travers la photographie et partager des expérience extraordinaires.
+                        </p>
+                    </div>
+                </div>
+                <div class="collapse collapse-arrow border border-gray-300 rounded-box bg-base-100 p-4 shadow-md">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium">Découverte des Cultures</div>
+                    <div class="collapse-content">
+                        <p class="text">
+                            Apprentissage des traditions locales, découverte culinaires et échange linguistique.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Destinations -->
+<section id="projects" class="w-screen bg-base-300 py-16">
+    <h2 class="text-3xl font-bold text-center mb-6">Mes Destinations</h2>
+
+    <!-- Conteneur Flex pour aligner les cartes -->
+    <div class="flex items-stretch justify-center gap-8 flex-wrap">
+
+        <!-- Carte Tunisie -->
+        <div class="card border w-full md:w-80 bg-primary shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+            <figure class="px-7 pt-4">
+                <img src="tunisie.JPG" alt="Tunisie" class="object-cover rounded-xl" />
+            </figure>
+            <div class="card-body flex flex-col justify-between">
+                <h2 class="card-title">Tunisie</h2>
+                <p>Monter à chameau, à cheval avec un bronzage optimal.</p>
+                <div class="badge badge-secondary">2024</div>
+            </div>
+        </div>
+
+        <!-- Carte Maroc -->
+        <div class="card border w-full md:w-80 bg-primary shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+            <figure class="px-7 pt-4">
+                <img src="maroc.JPG" alt="Maroc" class="object-cover rounded-xl" />
+            </figure>
+            <div class="card-body flex flex-col justify-between">
+                <h2 class="card-title">Maroc</h2>
+                <p>Fraises, framboises et thé à la menthe à portée de main.</p>
+                <div class="badge badge-secondary">2024</div>
+            </div>
+        </div>
+
+        <!-- Carte Tignes -->
+        <div class="card border w-full md:w-80 bg-primary shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+            <figure class="px-7 pt-4">
+                <img src="risoul.JPG" alt="Tignes" class="object-cover rounded-xl" />
+            </figure>
+            <div class="card-body flex flex-col justify-between">
+                <h2 class="card-title">Tignes</h2>
+                <p>Raclette, fondue et descente des pistes.</p>
+                <div class="badge badge-secondary">2025</div>
+            </div>
+        </div>
+
+    
+
+
+    </div> <!-- Fin du flex container -->
+</section>
+ 
+
+<!-- Calculatrice -->
+<section id="calculator" class="py-16 bg-base-100">
+    <div class="container mx-auto max-w-xl">
+        <h2 class="text-3xl font-bold text-center mb-6">Calculatrice</h2>
+        <div class="flex flex-col items-center">
+            <!-- Inputs alignés en ligne -->
+            <div class="flex space-x-4 mb-4">
+                <input id="num1" type="number" placeholder="Entier 1" class="input input-bordered w-32" />
+                <input id="num2" type="number" placeholder="Entier 2" class="input input-bordered w-32" />
+            </div>
+            <!-- Boutons d'opération -->
+            <div class="space-x-4">
+                <button onclick="calculate('+')" class="btn btn-primary">+</button>
+                <button onclick="calculate('-')" class="btn btn-primary">-</button>
+                <button onclick="calculate('*')" class="btn btn-primary">*</button>
+            </div>
+            <p id="result" class="mt-4 text-xl">Résultat: </p>
+        </div>
+    </div>
+</section>
+
+<!-- Section Contact -->
+<section id="contact" class="py-16 bg-base-200">
+    <div class="container mx-auto max-w-3xl">
+        <h2 class="text-3xl font-bold text-center mb-6">Me contacter</h2>
+        <p class="text-center mb-6">
+            Pour me contacter, vous devez répondre correctement à une série de questions.
+        </p>
+        <div id="question-container" class="text-center"></div>
+    </div>
+</section>
+
+<script src="questions.js"></script>
+</body>
+</html>
